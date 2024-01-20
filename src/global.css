@@ -2,9 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+*::-webkit-scrollbar {
+  width: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 @layer base {
   :root {
-    --gradient: linear-gradient(to top left,#00467F,#A5CC82);
+    --gradient: linear-gradient(to top left, #00467f, #a5cc82);
     --background: 220 100% 98.5%;
     --foreground: 220 10% 1%;
 
@@ -23,7 +43,7 @@
     --primary: 220 100% 25%;
     --primary-foreground: 220 2% 92.5%;
 
-    --secondary: 220 5% 96.25%;
+    --secondary: 220 5% 92.5%;
     --secondary-foreground: 220 7% 12.5%;
 
     --accent: 220 5% 96.25%;
