@@ -11,7 +11,7 @@ import { useSession } from "next-auth/react";
 
 const HeaderAuth = () => {
   const session = useSession();
-  console.log(session.data?.user);
+  // console.log(session.data?.user);
 
   const user = session.data?.user;
   const userDispaly = (
@@ -40,7 +40,7 @@ const HeaderAuth = () => {
               </Button>
             </form>
           </PopoverContent>
-        </Popover>
+        </Popover>  
       ) : (
         <form action={signin} className="flex gap-4">
           <Button type="submit">Sign In</Button>

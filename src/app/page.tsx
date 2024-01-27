@@ -1,4 +1,7 @@
 import CreateTopicForm from "@/components/topics/create-topic-form";
+import { Button } from "@/components/ui/button";
+import { paths } from "@/paths";
+import Link from "next/link";
 
 export default async function Home() {
   return (
@@ -14,7 +17,11 @@ export default async function Home() {
           </text>
         </svg>
       </div>
+      <div className="flex gap-8">
+        
       <CreateTopicForm/>
+      <Link href={paths.allTopicsShow()}><Button>Explore All</Button></Link>
+      </div>
     </div>
   );
 }

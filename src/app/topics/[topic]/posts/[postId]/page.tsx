@@ -1,9 +1,27 @@
-import React from 'react'
+import Link from "next/link";
+import PostShow from "@/components/posts/post-show";
+import CommentList from "@/components/comments/comment-list";
+import CommentCreateForm from "@/components/comments/comment-create-form";
+import { paths } from "@/paths";
 
-const PostShow = () => {
-  return (
-    <div>PostShow</div>
-  )
+interface PostShowPageProps {
+  params: {
+    topic: string;
+    postId: string;
+  };
 }
 
-export default PostShow
+export default async function PostShowPage({ params }: PostShowPageProps) {
+  const { topic, postId } = params;
+
+  return (
+    <div className="space-y-3">
+      <Link className="underline decoration-solid" href={paths.topicShow(topic)}>
+        {"< "}Back to {topic}
+      </Link>
+      {/* <PostShow /> */}
+      {/* <CommentCreateForm postId={postId} startOpen /> */}
+      {/* <CommentList comments={comments} /> */}
+    </div>
+  );
+}

@@ -1,9 +1,19 @@
-import React from 'react'
+import CreatePostForm from "@/components/posts/create-post-form";
 
-const AllPost = () => {
-  return (
-    <div>AllPost</div>
-  )
-}
+type TopicShowProps = {
+  params: {
+    topic: string;
+  };
+};
 
-export default AllPost
+const TopicShow = ({ params }: TopicShowProps) => {
+  const { topic } = params;
+  return <div className="flex gap-4 justify-between py-8">
+    <div className="w-full">
+    All post for the topic: {topic}
+    </div>
+    <CreatePostForm topic={topic}/>
+  </div>;
+};
+
+export default TopicShow;

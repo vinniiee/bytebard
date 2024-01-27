@@ -92,10 +92,19 @@
 }
 
 @layer base {
+
+  
+
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components{
+  .text-error{
+    @apply text-red-500 text-xs m-0.5;
   }
 }
