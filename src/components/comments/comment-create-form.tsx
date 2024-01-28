@@ -2,27 +2,31 @@
 
 import { useFormState } from "react-dom";
 import { useEffect, useRef, useState } from "react";
-import * as actions from "@/actions";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 import FormButton from "../form-button";
-import { Button } from "../ui/button";
+import { Button, btnVariants } from "../ui/button";
+import { createComment } from "@/actions";
 
 interface CommentCreateFormProps {
   postId: string;
   parentId?: string;
   startOpen?: boolean;
+  triggerLabel?:string;
+  triggerVariant?:btnVariants;
 }
 
 export default function CommentCreateForm({
   postId,
   parentId,
   startOpen,
+  triggerLabel="New Comment",
+  triggerVariant="default"
 }: CommentCreateFormProps) {
   const [open, setOpen] = useState(startOpen);
   const ref = useRef<HTMLFormElement | null>(null);
   const [formState, action] = useFormState(
-    actions.createComment.bind(null, { postId, parentId }),
+    createComment.bind(null, { postId, parentId }),
     { errors: {} }
   );
 
@@ -52,15 +56,20 @@ export default function CommentCreateForm({
           </div>
         ) : null}
 
-        <FormButton>Create Comment</FormButton>
+        <FormButton variant={"default"}>Create Comment</FormButton>
       </div>
     </form>
   );
 
   return (
-    <div>
-      <Button size="sm" variant="ghost" onClick={() => setOpen(!open)}>
-        Reply
+    <div className="flex flex-col gap-4">
+      <Button
+        size="sm"
+        className="w-32"
+        variant={open?"link":triggerVariant}
+        onClick={() => setOpen(!open)}
+      >
+        {open?"Hide":triggerLabel}
       </Button>
       {open && form}
     </div>

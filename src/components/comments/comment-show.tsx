@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { Button } from "@nextui-org/react";
 import CommentCreateForm from "@/components/comments/comment-create-form";
+import { CommentWithMetadata } from "@/lib/queries/comments";
 
 interface CommentShowProps {
   commentId: string;
+  comments: CommentWithMetadata[];
 }
 
-// TODO: Get a list of comments
-export default function CommentShow({ commentId }: CommentShowProps) {
+export default function CommentShow({ comments, commentId }: CommentShowProps) {
   const comment = comments.find((c) => c.id === commentId);
 
   if (!comment) {
@@ -37,7 +37,7 @@ export default function CommentShow({ commentId }: CommentShowProps) {
           </p>
           <p className="text-gray-900">{comment.content}</p>
 
-          <CommentCreateForm postId={comment.postId} parentId={comment.id} />
+          <CommentCreateForm triggerLabel={"Reply"} triggerVariant={"link"} postId={comment.postId} parentId={comment.id} />
         </div>
       </div>
       <div className="pl-4">{renderedChildren}</div>
