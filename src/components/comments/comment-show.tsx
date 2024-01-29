@@ -37,7 +37,12 @@ export default function CommentShow({ comments, commentId }: CommentShowProps) {
           </p>
           <p className="text-gray-900">{comment.content}</p>
 
-          <CommentCreateForm triggerLabel={"Reply"} triggerVariant={"link"} postId={comment.postId} parentId={comment.id} />
+          <CommentCreateForm
+            triggerLabel={"Reply"}
+            triggerVariant={"link"}
+            postId={comment.postId}
+            parentId={comment.id}
+          />
         </div>
       </div>
       <div className="pl-4">{renderedChildren}</div>
