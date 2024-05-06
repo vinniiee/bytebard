@@ -1,7 +1,6 @@
 "use client";
 
 import { createTopic } from "@/actions";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
@@ -15,9 +14,12 @@ const CreateTopicForm = () => {
   });
   return (
     <Popover>
-      <PopoverTrigger>
-        <Button variant={"secondary"}>Create Topic</Button>
+      <PopoverTrigger className="bg-secondary rounded px-3 py-2 text-sm font-medium hover:bg-secondary/70">
+        {/* <Button variant={"secondary"}> */}
+          Create Topic
+        {/* </Button> */}
       </PopoverTrigger>
+
       <PopoverContent className="flex flex-col sm:w-[600px] gap-3 p-8 max-h-[500px] pt-10">
         <h3 className="text-3xl font-semibold">Create a New Topic</h3>
         <form

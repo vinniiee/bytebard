@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 import FormButton from "../form-button";
-import { Button, btnVariants } from "../ui/button";
+import { Button } from "../ui/button";
 import { createComment } from "@/actions";
 
 interface CommentCreateFormProps {
@@ -13,7 +13,6 @@ interface CommentCreateFormProps {
   parentId?: string;
   startOpen?: boolean;
   triggerLabel?:string;
-  triggerVariant?:btnVariants;
 }
 
 export default function CommentCreateForm({
@@ -21,7 +20,6 @@ export default function CommentCreateForm({
   parentId,
   startOpen,
   triggerLabel="New Comment",
-  triggerVariant="default"
 }: CommentCreateFormProps) {
   const [open, setOpen] = useState(startOpen);
   const ref = useRef<HTMLFormElement | null>(null);
@@ -56,7 +54,7 @@ export default function CommentCreateForm({
           </div>
         ) : null}
 
-        <FormButton variant={"default"}>Create Comment</FormButton>
+        <FormButton >Create Comment</FormButton>
       </div>
     </form>
   );
@@ -66,7 +64,6 @@ export default function CommentCreateForm({
       <Button
         size="sm"
         className="w-32"
-        variant={open?"link":triggerVariant}
         onClick={() => setOpen(!open)}
       >
         {open?"Hide":triggerLabel}
