@@ -50,7 +50,7 @@ model User {
   sessions      Session[]
   Post          Post[]
   Comment       Comment[]
-  Authenticator Authenticator[]
+  // Authenticator Authenticator[]
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -66,20 +66,20 @@ model VerificationToken {
   @@map("verificationtokens")
 }
 
-model Authenticator {
-  credentialID         String  @unique
-  userId               String
-  providerAccountId    String
-  credentialPublicKey  String
-  counter              Int
-  credentialDeviceType String
-  credentialBackedUp   Boolean
-  transports           String?
+// model Authenticator {
+//   credentialID         String  @unique
+//   userId               String
+//   providerAccountId    String
+//   credentialPublicKey  String
+//   counter              Int
+//   credentialDeviceType String
+//   credentialBackedUp   Boolean
+//   transports           String?
  
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
-  @@id([userId, credentialID])
-}
+//   @@id([userId, credentialID])
+// }
 
 model Topic {
   id          String @id @default(cuid())
