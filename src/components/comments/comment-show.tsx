@@ -39,7 +39,7 @@ export default function CommentShow({ comments, commentId }: CommentShowProps) {
 
           <CommentCreateForm
             triggerLabel={"Reply"}
-            triggerVariant={"link"}
+            // triggerVariant={"link"}
             postId={comment.postId}
             parentId={comment.id}
           />
