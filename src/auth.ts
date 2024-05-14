@@ -8,7 +8,7 @@ if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) {
 }
 
 export const {
-  handlers: { GET, POST },
+  handlers,
   auth,
   signOut,
   signIn,
