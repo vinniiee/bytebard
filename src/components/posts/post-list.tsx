@@ -6,7 +6,7 @@ type PostListProps = {
   fetchPosts: () => Promise<PostWithMetadata[]>;
 };
 
-export default async function PostList({ fetchPosts }: PostListProps) {
+export default async function PostList({ fetchPosts }: PostListProps) { 
   const posts = await fetchPosts();
   const renderedPosts = posts.map((post) => {
     const topicSlug = post.topic.slug;
