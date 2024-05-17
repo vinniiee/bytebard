@@ -2,16 +2,26 @@
 import { paths } from "@/paths";
 import { Topic } from "@prisma/client";
 import Link from "next/link";
-import { use } from "react";
+import {  useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import TopicListSkeleton from "./topic-list-skeleton";
 
 const TopicList = () => {
   const { topic: currentTopic } = useParams();
-  const topics: Topic[] = use(
+  const [topics,setTopics] = useState<Topic[]>([]);
+  const[isLoading,setIsLoading] = useState(true);
+  useEffect(()=>{
     fetch(`/api/topics`)
       .then((res) => res.json())
+      .then(data=>setTopics(data))
       .catch((e) => console.log(e))
-  );
+      .finally(()=>setIsLoading(false));
+  },[])
+    
+  if(isLoading){
+    return <TopicListSkeleton/>;
+  }
+
   const render = topics.map((topic) => (
     <Link
       href={paths.topicShow(topic.slug)}
@@ -25,7 +35,6 @@ const TopicList = () => {
       {topic.slug}
     </Link>
   ));
-
   return <div className="flex gap-2 flex-wrap">{render}</div>;
 };
 
