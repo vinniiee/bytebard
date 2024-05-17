@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="w-full max-w-7xl mx-auto">
+          <div className="w-full gap-8 flex flex-col max-w-7xl mx-auto">
             <Header />
             {children}
           </div>
