@@ -16,7 +16,7 @@ export default async function PostList({ fetchPosts }: PostListProps) {
     }
 
     return (
-      <div key={post.id} className="border rounded p-2">
+      <div key={post.id} className="border rounded p-2 w-full">
         <Link href={paths.showPost(topicSlug, post.id)}>
           <h3 className="text-lg font-bold">{post.title}</h3>
           <div className="flex flex-row gap-8">
@@ -30,5 +30,5 @@ export default async function PostList({ fetchPosts }: PostListProps) {
     );
   });
 
-  return <div className="space-y-2">{renderedPosts}</div>;
+  return <div className="space-y-2 w-full">{renderedPosts}</div>;
 }

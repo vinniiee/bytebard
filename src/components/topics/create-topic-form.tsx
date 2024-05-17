@@ -14,7 +14,7 @@ const CreateTopicForm = () => {
   });
   return (
     <Popover>
-      <PopoverTrigger className="bg-secondary rounded px-3 py-2 text-sm font-medium hover:bg-secondary/70">
+      <PopoverTrigger className="bg-primary rounded px-3 py-2 text-sm text-white font-medium hover:bg-primary/70">
         {/* <Button variant={"secondary"}> */}
           Create Topic
         {/* </Button> */}

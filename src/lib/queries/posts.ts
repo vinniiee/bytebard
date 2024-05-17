@@ -14,3 +14,14 @@ export async function fetchPostsWithTopic(topic: string) {
     },
   });
 }
+
+export async function fetchAllPosts() {
+  return db.post.findMany({
+    take: 10,
+    include:{
+      topic:{select:{slug:true}},
+      user: {select : {name:true}},
+      _count:true
+    }
+  });
+}

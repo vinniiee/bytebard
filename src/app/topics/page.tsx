@@ -1,18 +1,20 @@
-import CreateTopicForm from "@/components/topics/create-topic-form";
-import TopicList from "@/components/topics/topic-list";
-import React from "react";
+import PostList from "@/components/posts/post-list";
+import { PostWithMetadata, fetchAllPosts } from "@/lib/queries/posts";
 
-const AllPost = async () => {
+const Page = async () => {
+  const fetchPosts = () => {
+    return new Promise<PostWithMetadata[]>((resolve) => {
+      fetchAllPosts().then((posts) => {
+        resolve(posts);
+      });
+    });
+  };
   return (
-    <div className="w-full  flex justify-between">
-      <div>All posts</div>
-      <div className=" flex flex-col items-start w-[300px]">
-        <CreateTopicForm />
-        <hr className="w-full bg-black my-2" />
-        <TopicList />
-      </div>
+    <div className="flex flex-col w-full  justify-start items-start gap-4">
+      <h1 className="text-4xl font-medium ">All Posts</h1>
+      <PostList fetchPosts={fetchPosts} />
     </div>
   );
 };
 
-export default AllPost;
+export default Page;
