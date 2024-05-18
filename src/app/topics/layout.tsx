@@ -14,7 +14,7 @@ const AllPost = async ({
         <CreateTopicForm />
         <hr className="w-full bg-black my-2" />
         <TopicList/>
-      </div>
+      </div> 
     </div>
     );
 };
