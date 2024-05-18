@@ -18,7 +18,7 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
   const { topic, postId } = params;
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 w-full mb-8">
       <Link
         className="underline decoration-solid"
         href={paths.topicShow(topic)}
